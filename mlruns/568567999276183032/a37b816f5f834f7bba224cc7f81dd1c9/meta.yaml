@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/568567999276183032/a37b816f5f834f7bba224cc7f81dd1c9/artifacts
+end_time: 1749482026986
+entry_point_name: ''
+experiment_id: '568567999276183032'
+lifecycle_stage: active
+run_id: a37b816f5f834f7bba224cc7f81dd1c9
+run_name: rebellious-shad-322
+run_uuid: a37b816f5f834f7bba224cc7f81dd1c9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749482017370
+status: 3
+tags: []
+user_id: PC

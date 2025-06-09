@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/96bab64bfa204305a9ad857f88d45d82/artifacts
+end_time: 1749479337211
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 96bab64bfa204305a9ad857f88d45d82
+run_name: efficient-fox-887
+run_uuid: 96bab64bfa204305a9ad857f88d45d82
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1749479328617
+status: 4
+tags: []
+user_id: PC

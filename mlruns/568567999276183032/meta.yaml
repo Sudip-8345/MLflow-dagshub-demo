@@ -1,0 +1,6 @@
+artifact_location: mlflow-artifacts:/568567999276183032
+creation_time: 1749481971713
+experiment_id: '568567999276183032'
+last_update_time: 1749481971713
+lifecycle_stage: active
+name: iris-dtree
