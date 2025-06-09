@@ -8,7 +8,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 from matplotlib import pyplot as plt
 import seaborn as sns
 
-mlflow.set_tracking_uri("https://dagshub.com/Sudip-8345/MLflow-dagshub-demo.mlflow")
+mlflow.set_tracking_uri("http://127.0.0.1:5000")
 
 # Load data
 iris = load_iris()
@@ -20,13 +20,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 max_depth = 5
 # n_estimators = 100
 
-import os
-
-os.environ["MLFLOW_TRACKING_USERNAME"] = "Sudip-8345"
-os.environ["MLFLOW_TRACKING_PASSWORD"] = "3a7b1bd52c535c004bd9b275516eae784255615d"
-
 # Start MLflow run
-with mlflow.start_run():
+with mlflow.start_run(experiment_id=568567999276183032):
     rf = DecisionTreeClassifier(max_depth=max_depth, random_state=42)
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_test)
