@@ -10,7 +10,8 @@ import seaborn as sns
 import dagshub
 dagshub.init(repo_owner='Sudip-8345', repo_name='MLflow-dagshub-demo', mlflow=True)
 
-mlflow.set_tracking_uri("https://github.com/Sudip-8345/MLflow-dagshub-demo.git")
+mlflow.set_tracking_uri("https://dagshub.com/Sudip-8345/MLflow-dagshub-demo.mlflow")
+
 
 # Load data
 iris = load_iris()
@@ -19,11 +20,15 @@ y = iris.target
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Set hyperparameters
-max_depth = 5
-n_estimators = 100
+max_depth = 3
+n_estimators = 70
 
+import os
+
+os.environ["MLFLOW_TRACKING_USERNAME"] = "Sudip-8345"
+os.environ["MLFLOW_TRACKING_PASSWORD"] = "3a7b1bd52c535c004bd9b275516eae784255615d"
 # Start MLflow run
-with mlflow.start_run():
+with mlflow.start_run(experiment_id=1, run_name="RandomForest_Iris_Experiment"):
     rf = RandomForestClassifier(max_depth=max_depth, n_estimators=n_estimators, random_state=42)
     rf.fit(X_train, y_train)
     y_pred = rf.predict(X_test)
@@ -54,6 +59,10 @@ with mlflow.start_run():
     plt.savefig("plots/confusion_matrix.png")
     mlflow.log_artifact("plots/confusion_matrix.png")
 
+    mlflow.log_artifact(__file__)  # Log the script file
+
+    mlflow.set_tag("author", "Sudip-8345")  # Set a tag for the run
+    mlflow.set_tag("model_type", "RandomForest")  # Set a tag for the model type
     # mlflow.log_artifact("confusion_matrix.png")
 
     print("Model and metrics logged to MLflow.")
